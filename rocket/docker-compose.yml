@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  db:
+    image: mongo
+    volumes:
+      - ./datatest/runtime/db:/data/db
+      - ./datatest/dump:/dump
+    command: mongod --smallfiles
+
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    environment:
+      MONGO_URL: mongodb://db:27017/rocketchat
+      ROOT_URL: http://chat.deconstruct.cc
+      Accounts_UseDNSDomainCheck: "false"
+      MAIL_URL: smtp://rod@deconstruct.cc
+      VIRTUAL_HOST: chat.deconstruct.cc
+      LETSENCRYPT_HOST: chat.deconstruct.cc
+      LETSENCRYPT_EMAIL: rod@deconstruct.cc
+    links:
+      - db:db
+    ports:
+      - 3000:3000
+    restart: always
+  #hubot:
+    # doesnt matter for now
+networks:
+    default:
+       external:
+         name: mywebproxy
