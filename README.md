@@ -23,6 +23,7 @@ $ sudo nano .env
 
 Copy file from example.env and modify your specific details (IP)
 
+```
 $ run ./start.sh 
 # Start the container with:
 $ docker run -d -e VIRTUAL_HOST=domain.com \
@@ -31,16 +32,21 @@ $ docker run -d -e VIRTUAL_HOST=domain.com \
 --network=webproxy \
 --name deconstruct_chat \
 httpd:alpine
-Having installed Nginx, time for Rocket.chat
-Inspired by this exchange
+```
 
+Having installed Nginx, time for Rocket.chat
+
+```
 $ mkdir rocket
 $ cd rocket
 $ touch docker-compose.yml
 $ sudo nano docker-compose.yml
+```
 
 Copy from example file (docker-compose.yml) and replace with your domain and email info:
 
+```
 $ docker-compose build
 $ docker-compose up -d
+```
 
