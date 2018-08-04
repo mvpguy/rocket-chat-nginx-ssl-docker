@@ -6,7 +6,7 @@ Here is what worked for me:
 I started with a Digital Ocean container with a one-click install of Docker pre-installed.
 
 ## Installing nginx + SSL (from Let’s encrypt free SSL certificate)
-This step was based on this repo for a getting set up with Nginx with auto SSL from Let’s Encrypt:
+This step was based on this repo (https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) for a getting set up with Nginx with auto SSL from Let’s Encrypt:
 
 ```
 mkdir nginx
@@ -35,6 +35,7 @@ httpd:alpine
 ```
 
 ## Having installed Nginx, time for Rocket.chat
+More info here (https://github.com/RocketChat/Rocket.Chat/issues/9210)
 
 ```
 $ mkdir rocket
